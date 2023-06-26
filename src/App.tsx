@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import ReactDeReversiContainer from "./containers/ReactDeReversiContainer";
+import reducer from "./reducers";
+import "./assets/stylesheets/sanitize.min.css";
+import "./assets/stylesheets/index.css";
+import "./assets/stylesheets/ReactDeReversi.css";
+var createReduxStore = require("create-redux-store");
 
 function App() {
+  const store = createReduxStore(reducer);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ReactDeReversiContainer />
+    </Provider>
   );
 }
 

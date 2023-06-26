@@ -1,0 +1,260 @@
+.title {
+  text-align: center;
+}
+
+.title-bar {
+  background-color: #393;
+  padding: 10px;
+  color: white;
+}
+
+.title-bar .logo {
+   padding-top: 20px;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.game-board .board {
+  margin-left: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.game-board .board .body {
+  border: 10px outset #666;
+}
+
+.game-board .board .body-row {
+  width: 264px;
+}
+
+.game-board .board .body-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.game-board .board .body-row .square {
+  background: #393;
+  border: 1px solid #666;
+  float: left;
+  font-size: 26px;
+  height: 34px;
+  line-height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 1px 0 0 2px;
+  width: 34px;
+}
+
+.game-board .board .body-row .square-o {
+  background: #3c3;
+}
+
+.game-board .board .body-row .square-x {
+  background: #393;
+}
+
+.game-board .board .body-row .square:focus {
+  outline: none;
+}
+
+.game-board .board .body-row .square .black {
+  background-color: #000;
+  border-radius: 46px;
+  display: inline-block;
+  height: 23px;
+  margin-right: 1px;
+  margin-top: 1px;
+  width: 23px;
+}
+
+.game-board .board .body-row .square .white {
+  background-color: #fff;
+  border-radius: 46px;
+  display: inline-block;
+  height: 23px;
+  margin-right: 1px;
+  margin-top: 1px;
+  width: 23px;
+}
+
+.game-board .board .body-row .square .none {
+  display: none;
+}
+
+.game-board .board .row-numbers {
+  left: -30px;
+  position: absolute;
+  top: 18px;
+}
+
+.game-board .board .row-numbers .row-number {
+  display: block;
+  height: 34px;
+  margin-top: -1px;
+  text-align: center;
+  width: 34px;
+}
+
+.game-board .board .column-numbers {
+  left: 11px;
+  position: absolute;
+  top: -24px;
+}
+
+.game-board .board .column-numbers .column-number {
+  float: left;
+  margin-right: -1px;
+  text-align: center;
+  width: 34px;
+}
+
+.game-menu {
+  margin-left: 10px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.game-menu button {
+  height: 30px;
+  margin: 0 5px;
+  padding: 2px;
+  width: 80px;
+}
+
+.game-menu button.guide-button-on {
+  background-color: #fc6;
+  border: 1px solid #f90;
+}
+
+.game-menu button.guide-button-off {
+  background-color: #ccc;
+  border: 1px solid #999;
+}
+
+.game-info {
+  margin-left: 30px;
+  width: 160px;
+}
+
+.game-info span {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.game-info span span.black {
+  background-color: #000;
+  border: solid 1px #000;
+  border-radius: 28px;
+  display: inline-flex;
+  height: 14px;
+  margin-right: 4px;
+  width: 14px;
+}
+
+.game-info span span.white {
+  background-color: #fff;
+  border: solid 1px #666;
+  border-radius: 28px;
+  display: inline-flex;
+  height: 14px;
+  margin-right: 4px;
+  width: 14px;
+}
+
+.game-info .count {
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.game-info .count span.black {
+  background-color: #000;
+  border: solid 1px #000;
+  border-radius: 28px;
+  display: inline-flex;
+  height: 14px;
+  margin-right: 2px;
+  width: 14px;
+}
+
+.game-info .count span.white {
+  background-color: #fff;
+  border: solid 1px #666;
+  border-radius: 28px;
+  display: inline-flex;
+  height: 14px;
+  margin-left: 2px;
+  width: 14px;
+}
+
+.game-info ol {
+  border: 1px solid #666;
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.game-info ol li {
+  height: 22px;
+  margin-left: 8px;
+}
+
+.game-info ol li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.game-info ol li a:hover {
+  color: #999;
+  text-decoration: underline;
+}
+
+.game-info ol li a div {
+  display: inline;
+}
+
+.game-info ol li a div span.black {
+  background-color: #000;
+  border: solid 1px #000;
+  border-radius: 28px;
+  display: inline-flex;
+  height: 12px;
+  width: 12px;
+}
+
+.game-info ol li a div span.white {
+  background-color: #fff;
+  border: solid 1px #666;
+  border-radius: 24px;
+  display: inline-flex;
+  height: 12px;
+  width: 12px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer-ads {
+  margin: 20px 0;
+}
+
+.footer-ads ins {
+  display: block;
+  height: 60px;
+  margin: 0 auto;
+  width: 468px;
+}
