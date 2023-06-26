@@ -1,5 +1,5 @@
 import React from "react";
-import Board from "../components/Board";
+import Board from "./Board";
 import GameSummary from "./GameSummary";
 
 type Squares = {
@@ -11,17 +11,17 @@ type Actions = {
   onSquareClick: (number: number) => void;
 };
 
-type ReactDeReversiProps = {
+type MainGameBoardProps = {
   squares: Squares;
   actions: Actions;
 };
 
-const ReactDeReversi: React.FC<ReactDeReversiProps> = ({
-  squares,
-  actions,
-}) => {
+const MainGameBoard: React.FC<MainGameBoardProps> = ({ squares, actions }) => {
   const currentSquares = squares.histories[squares.histories.length - 1];
+
+  // Get the current step based on the number of moves made
   const step = squares.numbers.length;
+
   return (
     <div className="ReactDeReversi">
       <div className="game">
@@ -40,4 +40,4 @@ const ReactDeReversi: React.FC<ReactDeReversiProps> = ({
   );
 };
 
-export default ReactDeReversi;
+export default MainGameBoard;

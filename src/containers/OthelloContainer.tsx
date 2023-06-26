@@ -2,21 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../redux/actions";
-import ReactDeReversi from "../components/ReactDeReversi";
-// import { RootState } from "../types"; // Assuming you have a RootState type defined
+import MainGameBoard from "../components/MainGameBoard";
 
 interface IProps {
-  squares: any; // Replace 'any' with the appropriate type for squares
-  actions: typeof actions; // Adjust the type based on the actions import
+  squares: any;
+  actions: typeof actions;
 }
 
+// OthelloContainer component renders the MainGameBoard component with squares and actions as props
 const OthelloContainer: React.FC<IProps> = ({ squares, actions }) => {
-  return <ReactDeReversi squares={squares} actions={actions} />;
+  return <MainGameBoard squares={squares} actions={actions} />;
 };
-
-// const mapStateToProps = (state: any) => ({
-//   squares: state.squares,
-// });
 
 const mapStateToProps = (state: any): { squares: any } => ({
   squares: state.squares,

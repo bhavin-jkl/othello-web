@@ -18,12 +18,3 @@ export const onSquareClick = (number: number): ISquareAction => {
     number,
   };
 };
-
-// import * as actionTypes from "../constants/actionTypes";
-
-// export const onSquareClick = (number) => {
-//   return {
-//     type: actionTypes.SQUARE,
-//     number,
-//   };
-// };

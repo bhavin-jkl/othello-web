@@ -6,11 +6,17 @@ interface IProps {
   numbers: number[];
 }
 
+// Function to determine the game status and render the corresponding message
 const status = (squares: string[], numbers: number[]): React.ReactNode => {
   const step = numbers.length;
+
+  // Check if the game has ended
   if (gameModel.isGameEnd(squares, numbers)) {
+    // If the game has ended, calculate the winner
     return gameModel.calculateWinner(squares);
   }
+
+  // If the game is still ongoing, display the current player's turn
   return (
     <div>
       <span className="status-title">
@@ -23,13 +29,13 @@ const status = (squares: string[], numbers: number[]): React.ReactNode => {
 const GameSummary: React.FC<IProps> = ({ squares, numbers }) => (
   <div className="info">
     <div className="count">
-      <div>
+      <div className="info-content">
         <span className="black"></span> {gameModel.countBlack(squares)}{" "}
       </div>
-      <div>
+      <div className="info-content">
         <span>{status(squares, numbers)}</span>{" "}
       </div>
-      <div>
+      <div className="info-content">
         <span className="white"></span> {gameModel.countWhite(squares)}{" "}
       </div>
     </div>
@@ -37,31 +43,3 @@ const GameSummary: React.FC<IProps> = ({ squares, numbers }) => (
 );
 
 export default GameSummary;
-
-// import React from "react";
-// import * as gameModel from "../models/game";
-
-// const status = (squares, numbers) => {
-//   const step = numbers.length;
-//   if (gameModel.isGameEnd(squares, numbers)) {
-//     return gameModel.calculateWinner(squares);
-//   }
-//   return (
-//     <div>
-//       {"Next player: "}
-//       <span className={gameModel.color(step)}></span>
-//     </div>
-//   );
-// };
-
-// const Info = ({ squares, numbers, onClick }) => (
-//   <div className="info">
-//     <span>{status(squares, numbers)}</span>
-//     <div className="count">
-//       <span className="black"></span> {gameModel.countBlack(squares)} -{" "}
-//       {gameModel.countWhite(squares)} <span className="white"></span>
-//     </div>
-//   </div>
-// );
-
-// export default Info;
