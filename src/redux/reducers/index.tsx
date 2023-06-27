@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import squares from "./squares.js";
+import squares from "./squares";
 
-const reducer = combineReducers({
+const reducer: any = combineReducers({
   squares,
 });
 

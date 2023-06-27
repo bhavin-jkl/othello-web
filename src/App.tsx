@@ -1,16 +1,15 @@
+import React from "react";
 import { Provider } from "react-redux";
-import ReactDeReversiContainer from "./containers/ReactDeReversiContainer";
-import reducer from "./reducers";
-import "./assets/stylesheets/sanitize.min.css";
-import "./assets/stylesheets/index.css";
-import "./assets/stylesheets/ReactDeReversi.css";
-var createReduxStore = require("create-redux-store");
+import OthelloContainer from "./containers/OthelloContainer";
+import reducer from "./redux/reducers";
+import "./style/index.css";
+const createReduxStore = require("create-redux-store");
 
-function App() {
+function App(): JSX.Element {
   const store = createReduxStore(reducer);
   return (
     <Provider store={store}>
-      <ReactDeReversiContainer />
+      <OthelloContainer />
     </Provider>
   );
 }
