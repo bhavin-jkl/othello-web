@@ -9,7 +9,7 @@ interface IProps {
   actions: typeof actions;
 }
 
-// OthelloContainer component renders the MainGameBoard component with squares and actions as props
+// OthelloContainer component renders the MainGameBoard component with squares and actions as a props
 const OthelloContainer: React.FC<IProps> = ({ squares, actions }) => {
   return <MainGameBoard squares={squares} actions={actions} />;
 };

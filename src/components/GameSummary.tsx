@@ -30,13 +30,13 @@ const GameSummary: React.FC<IProps> = ({ squares, numbers }) => (
   <div className="info">
     <div className="count">
       <div className="info-content">
-        <span className="black"></span> {gameModel.countBlack(squares)}{" "}
+        <span className="black"></span> {gameModel.countBlackSquares(squares)}{" "}
       </div>
       <div className="info-content">
         <span>{status(squares, numbers)}</span>{" "}
       </div>
       <div className="info-content">
-        <span className="white"></span> {gameModel.countWhite(squares)}{" "}
+        <span className="white"></span> {gameModel.countWhiteSquares(squares)}{" "}
       </div>
     </div>
   </div>

@@ -13,13 +13,12 @@ interface ISquare {
 }
 
 interface ISquaresState {
-  histories: ISquare[]; // Array of square objects representing the history of moves
-  numbers: number[]; // Array of numbers representing the moves made
+  histories: ISquare[];
+  numbers: number[];
 }
-
 const initialSquaresState: ISquaresState = {
-  histories: [initialSquares()], // Initialize with the initial squares setup
-  numbers: [0], // Start with a default number of 0
+  histories: [initialSquares()],
+  numbers: [0],
 };
 
 // Function to initialize the squares
@@ -58,7 +57,6 @@ const squares = (
   if (action.type === actionTypes.SQUARE) {
     const number = action.number;
     step = numbers.length;
-
     if (squares[number] || !squareModel.canPlace(squares, number, step)) {
       return state; // If the square is already occupied or cannot be placed, return the current state
     }

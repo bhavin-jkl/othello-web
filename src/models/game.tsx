@@ -2,27 +2,8 @@ import { LINE_COUNT, BLACK, WHITE } from "../constants/configurations";
 
 export function color(step: number): string {
   // Determine the color based on the current step
-  return isBlackMove(step) ? BLACK : WHITE;
-}
-
-export function countBlack(squares: { [key: number]: string | null }): number {
-  let count = 0;
-  for (const i in squares) {
-    if (squares[i] === BLACK) {
-      count++;
-    }
-  }
-  return count;
-}
-
-export function countWhite(squares: { [key: number]: string | null }): number {
-  let count = 0;
-  for (const i in squares) {
-    if (squares[i] === WHITE) {
-      count++;
-    }
-  }
-  return count;
+  const colorName = isBlackMove(step) ? BLACK : WHITE;
+  return colorName;
 }
 
 export function isBlackMove(step: number): boolean {
@@ -33,41 +14,70 @@ export function isBlackMove(step: number): boolean {
   return step % 2 !== 0;
 }
 
+// Count the black square
+export function countBlackSquares(squares: {
+  [key: number]: string | null;
+}): number {
+  let count = 0;
+
+  for (const key in squares) {
+    if (squares[key] === BLACK) {
+      count++;
+    }
+  }
+  return count;
+}
+
+// Count the white square
+export function countWhiteSquares(squares: {
+  [key: number]: string | null;
+}): number {
+  let count = 0;
+
+  for (const key in squares) {
+    if (squares[key] === WHITE) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Calculate the winner based on the count of black and white squares
+export function calculateWinner(squares: {
+  [key: number]: string | null;
+}): string {
+  const blackCount = countBlackSquares(squares);
+  const whiteCount = countWhiteSquares(squares);
+
+  if (blackCount > whiteCount) {
+    return "Winner: BLACK !!";
+  } else if (blackCount < whiteCount) {
+    return "Winner is WHITE !!";
+  } else {
+    return "Game is a draw...";
+  }
+}
+
+// Check if the game has ended
 export function isGameEnd(
   squares: { [key: number]: string | null },
   numbers: number[]
 ): boolean {
-  // Check if the game has ended
   if (numbers[numbers.length - 1] === 0 && numbers[numbers.length - 2] === 0) {
-    // If the last two moves were 0, it indicates that both players passed
     return true;
   }
-  return isFilled(squares); // Check if all squares are filled
+  return isFilled(squares);
 }
 
-export function calculateWinner(squares: {
-  [key: number]: string | null;
-}): string {
-  // Calculate the winner based on the count of black and white squares
-  const blackCount = countBlack(squares);
-  const whiteCount = countWhite(squares);
-  if (blackCount > whiteCount) {
-    return "Winner: " + BLACK.toUpperCase() + " !!";
-  } else if (blackCount < whiteCount) {
-    return "Winner: " + WHITE.toUpperCase() + " !!";
-  } else {
-    return "Draw...";
-  }
-}
-
+// Check if all squares are filled or not
 function isFilled(squares: { [key: number]: string | null }): boolean {
-  // Check if all squares are filled with a non-null value
   const totalSquares = Math.pow(LINE_COUNT, 2);
 
   for (let i = 1; i <= totalSquares; i++) {
     if (squares[i] === null) {
-      return false; // If any square is null, return false
+      return false;
     }
   }
-  return true; // If all squares are filled, return true
+  return true;
 }

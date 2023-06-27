@@ -8,7 +8,7 @@ type ISquareProps = {
 
 const Square: React.FC<ISquareProps> = ({ value, canPlace, onClick }) => {
   // Determine the name of the CSS class based on the value of the square
-  const name = value ? value : "hint-coin";
+  const name = value ? value : "hint-square";
 
   // Determine the CSS classes to apply to the square
   let className = "square";
@@ -16,9 +16,7 @@ const Square: React.FC<ISquareProps> = ({ value, canPlace, onClick }) => {
 
   return (
     <div>
-      {/* Render a button representing the square */}
       <button className={className} onClick={onClick}>
-        {/* Render a span element with the appropriate CSS class */}
         <span className={name}></span>
       </button>
     </div>
